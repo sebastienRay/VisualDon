@@ -3,3 +3,6 @@ package.json
 package-lock.json
 node
 node@13.8.0
+20200228/core-js@2.6.11
+*.4
+20200228/deasync@0.1.19
