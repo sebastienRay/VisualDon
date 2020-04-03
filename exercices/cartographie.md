@@ -10,7 +10,7 @@
 
    .osm
 
-   .zip
+   .shapfile
 
    .json
 
