@@ -1,6 +1,32 @@
 import * as d3 from 'd3'
+import { select } from 'd3'
 
 console.log(d3);
+
+//create and manage the year picker under the map
+const input = document.getElementById('year-input');
+const onYearChange = year => {
+    console.log(year);
+    yearDisplay.text(year)
+};
+
+
+input.addEventListener('input', e => onYearChange(Number(e.target.value)));
+
+const div = select('#graph');
+
+const svg = div.append('svg');
+const YEAR_DISPLAY_SIZE = 100;
+
+export const yearDisplay = svg.append('text')
+    .attr('x', 1000)
+    .attr('y', 400 )
+    .attr('font-size', YEAR_DISPLAY_SIZE)
+    .attr('text-anchor', 'end')
+    .attr('opacity', 0.5)
+    .text(2020);
+
+
 
 // mapid is the id of the div where the map will appear
 var map = L
@@ -17,19 +43,11 @@ L.tileLayer(
 // Add a svg layer to the map
 L.svg().addTo(map);
 
-d3.json("results-20200403-144145.json")
+
+d3.json("earthquake.json")
     .then(function(json) {
     console.log(json);
 
-// Create data for circles:
-/*var markers = [
-    {long: 31.1, lat: 35.5}, // corsica
-    {long: 7.26, lat: 43.71}, // nice
-    {long: 2.349, lat: 48.864}, // Paris
-    {long: -1.397, lat: 43.664}, // Hossegor
-    {long: 3.075, lat: 50.640}, // Lille
-    {long: -3.83, lat: 48}, // Morlaix
-];*/
 
 // Select the svg area and add circles:
 d3.select("#mapid")
@@ -40,17 +58,26 @@ d3.select("#mapid")
     .append("circle")
     .attr("cx", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).x })
     .attr("cy", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).y })
-    .attr("r", 14)
+    .attr("r", 2)
     .style("fill", "red")
     .attr("stroke", "red")
     .attr("stroke-width", 3)
-    .attr("fill-opacity", .4)
+    .attr("fill-opacity", .4);
+    console.log("test");
+
 
 // Function that update circle position if something change
 function update() {
     d3.selectAll("circle")
         .attr("cx", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).x })
         .attr("cy", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).y })
+    // TRANSITION BLOW TO WORK ON
+    /*circles.transition()
+        .duration(2000)
+        .attr("r", 14)
+        .transition()
+        .duration(2000)
+        .attr("r",0)*/
 }
 
 // If the user change the map (zoom or drag), I update circle position:

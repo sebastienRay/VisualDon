@@ -10,10 +10,31 @@
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
     <style>
         #mapid { height: 600px; }
+        #content {
+            width: 95%;
+            margin: auto;
+        }
+
+        #year-input {
+            width: 100%;
+            background: #f1f1f1;
+        }
+
+        #year-input::-webkit-slider-thumb, #year-input::-moz-range-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            background: rgb(109, 109, 109);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-<div id="mapid"></div>
+<div id="content">
+    <div id="mapid"></div>
+    <input id="year-input" type="range" min="-2100" max="2020" value="2020" />
+</div>
 <script src="bundle.js"></script>
 
 
