@@ -1,0 +1,30 @@
+{
+  "name": "VisualDon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastienRay/VisualDon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastienRay/VisualDon/issues"
+  },
+  "homepage": "https://github.com/sebastienRay/VisualDon#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4",
+    "webpack": "^4.42.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "d3": "^5.15.0",
+    "node-fetch": "^2.6.0",
+    "ramda": "^0.27.0"
+  }
+}
