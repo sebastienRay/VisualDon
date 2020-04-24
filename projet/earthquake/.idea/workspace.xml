@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8ce41d0-7a63-4805-aa49-61a01e7bf2cb" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../exercices/scrapingcheerio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../exercices/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/steam - Copie.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/steam.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,18 +32,20 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="javascript.nodejs.core.library.configured.version" value="10.16.3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../exercices/test.js" />
     <property name="list.type.of.created.stylesheet" value="textmate" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sebas\WebstormProjects\dataviz\dist" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sebas\WebstormProjects\PWA\src" />
       <recent name="C:\Users\sebas\WebstormProjects\PWA\src\css" />
       <recent name="C:\Users\sebas\WebstormProjects\PWA\dist" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\Documents\GitHub\VisualDon\exercices" />
+      <recent name="C:\Users\sebas\WebstormProjects\dataviz\dist" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -58,6 +59,16 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="scraping_cheerio.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/../../exercices/scraping_cheerio.js" working-dir="$PROJECT_DIR$/../../exercices">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.scraping_cheerio.js" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -82,7 +93,10 @@
       <workItem from="1584269035178" duration="4871000" />
       <workItem from="1585296659880" duration="695000" />
       <workItem from="1585914376723" duration="4843000" />
-      <workItem from="1587204778612" duration="4979000" />
+      <workItem from="1587204778612" duration="5541000" />
+      <workItem from="1587546151527" duration="9000" />
+      <workItem from="1587716727613" duration="1445000" />
+      <workItem from="1587719308279" duration="629000" />
     </task>
     <servers />
   </component>
@@ -94,7 +108,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
