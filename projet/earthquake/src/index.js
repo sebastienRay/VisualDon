@@ -1,85 +1,68 @@
-import * as d3 from 'd3'
 import { select } from 'd3'
+import { map, svgLayer, getLeafletPosition } from './map'
+import {setBubble} from './bubble'
+import 'css/style.css';
 
-console.log(d3);
+// DONNEES
 
-//create and manage the year picker under the map
-const input = document.getElementById('year-input');
+// importer les données directement du fichier
+import data from '../dist/earthquake.json'
+import {jsdelivr} from "d3/dist/package";
+
+// une fonction pour aller chercher les données par année
+const getDataByYear = year =>
+    data.filter(d => d.year === year);
+
+
+// ELEMENTS
+
+// prendre la couche svg "leaflet" avec "d3"
+const svg = select(svgLayer._container)
+
+// le "slider"
+const input = document.getElementById('year-input')
+
+//taille des bulles en fonction de l'intensité du seisme
+function taille (size){
+    data.filter(d => d === size);
+    console.log(size.eq_primary)
+    return size.eq_primary;
+}
+// une fonction pour créer les cercles
+// elle prends les données par année
+const createCircles = data =>
+    svg.selectAll('circle')
+        .data(data, d => d.id)
+        .enter()
+        .append('circle')
+        .attr('cx', d => getLeafletPosition(d).x)
+        .attr('cy', d => getLeafletPosition(d).y)
+        .attr("r", taille)
+        .style("fill", "red")
+        .attr("stroke", "red")
+        .attr("stroke-width", 3)
+        .attr("fill-opacity", .4)
+
+// EVENEMENTS
+
+// quand l'année change
 const onYearChange = year => {
-    console.log(year);
-    yearDisplay.text(year)
-};
-
-
-input.addEventListener('input', e => onYearChange(Number(e.target.value)));
-
-const div = select('#graph');
-
-const svg = div.append('svg');
-const YEAR_DISPLAY_SIZE = 100;
-
-export const yearDisplay = svg.append('text')
-    .attr('x', 1000)
-    .attr('y', 400 )
-    .attr('font-size', YEAR_DISPLAY_SIZE)
-    .attr('text-anchor', 'end')
-    .attr('opacity', 0.5)
-    .text(2020);
-
-
-
-// mapid is the id of the div where the map will appear
-var map = L
-    .map('mapid')
-    .setView([47, 2], 5);   // center position + zoom
-
-// Add a tile to the map = a background. Comes from OpenStreetmap
-L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
-        maxZoom: 6,
-    }).addTo(map);
-
-// Add a svg layer to the map
-L.svg().addTo(map);
-
-
-d3.json("earthquake.json")
-    .then(function(json) {
-    console.log(json);
-
-
-// Select the svg area and add circles:
-d3.select("#mapid")
-    .select("svg")
-    .selectAll("myCircles")
-    .data(json)
-    .enter()
-    .append("circle")
-    .attr("cx", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).x })
-    .attr("cy", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).y })
-    .attr("r", 2)
-    .style("fill", "red")
-    .attr("stroke", "red")
-    .attr("stroke-width", 3)
-    .attr("fill-opacity", .4);
-    console.log("test");
-
-
-// Function that update circle position if something change
-function update() {
-    d3.selectAll("circle")
-        .attr("cx", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).x })
-        .attr("cy", function(d){ return map.latLngToLayerPoint([d.latitude, d.longitude]).y })
-    // TRANSITION BLOW TO WORK ON
-    /*circles.transition()
-        .duration(2000)
-        .attr("r", 14)
-        .transition()
-        .duration(2000)
-        .attr("r",0)*/
+    svg.selectAll('circle').remove() // enlever les cercles existants
+    createCircles(getDataByYear(year)) // ajouter les cercles pour l'année
 }
 
-// If the user change the map (zoom or drag), I update circle position:
-map.on("moveend", update);
-    });
+// quand le "slider" change
+input.addEventListener('input', e => onYearChange(Number(e.target.value)))
+
+// repositionner les cercles sur la carte quand tu zoom la carte
+map.on('moveend', () => {
+    svg.selectAll('circle')
+        .attr('cx', d => getLeafletPosition(d).x)
+        .attr('cy', d => getLeafletPosition(d).y)
+})
+
+// montrer les cercles pour 2020 quand la page charge
+window.addEventListener('load', () => onYearChange(2020))
+
+// bubbles
+
