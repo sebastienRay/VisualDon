@@ -1,13 +1,33 @@
 import { select } from 'd3'
-import { map, svgLayer, getLeafletPosition } from './map'
+
 import {setBubble} from './bubble'
 import 'css/style.css';
-
+import './map';
 // DONNEES
 
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
 import {jsdelivr} from "d3/dist/package";
+import L from "leaflet";
+
+// la carte "leaflet"
+export const map = L.map('mapid').setView([47, 2], 2)
+
+
+// la couche SVG de leaflet
+const svgLayer = L.svg().addTo(map);
+
+// map
+
+// le fond de carte
+L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+        maxZoom: 6,
+    }).addTo(map);
+
+// traduire les coordonnées en position sur la couche SVG
+const getLeafletPosition = d => map.latLngToLayerPoint([d.latitude, d.longitude]);
 
 // une fonction pour aller chercher les données par année
 const getDataByYear = year =>
@@ -25,9 +45,9 @@ const input = document.getElementById('year-input')
 //taille des bulles en fonction de l'intensité du seisme
 function taille (size){
     data.filter(d => d === size);
-    console.log(size.eq_primary)
     return size.eq_primary;
 }
+
 // une fonction pour créer les cercles
 // elle prends les données par année
 const createCircles = data =>
@@ -41,7 +61,7 @@ const createCircles = data =>
         .style("fill", "red")
         .attr("stroke", "red")
         .attr("stroke-width", 3)
-        .attr("fill-opacity", .4)
+        .attr("fill-opacity", .4);
 
 // EVENEMENTS
 
@@ -64,5 +84,5 @@ map.on('moveend', () => {
 // montrer les cercles pour 2020 quand la page charge
 window.addEventListener('load', () => onYearChange(2020))
 
-// bubbles
+
 

@@ -30,6 +30,8 @@
     "jquery": "^3.3.1",
     "leaflet": "^1.6.0",
     "mainloop.js": "^1.0.4",
+    "materialize-css": "^1.0.0-rc.2",
+    "nouislider": "^14.2.0",
     "randomcolor": "^0.5.3",
     "surge": "^0.21.3"
   }
