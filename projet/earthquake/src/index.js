@@ -8,7 +8,9 @@ import 'css/style.css';
 import data from '../dist/earthquake.json'
 import {jsdelivr} from "d3/dist/package";
 import L from "leaflet";
+import map20 from './map.js'
 
+map20('mapTWENTY');
 
 // la carte "leaflet"
 export const map = L.map('mapid').setView([47, 2], 2)
