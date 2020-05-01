@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Exercice canvas</title>
+</head>
+<body>
+<canvas id="dessin" width="1000" height="500"></canvas>
+<script>
+
+    const c=document.getElementById('dessin');
+    const cc=c.getContext("2d");
+    c.style.backgroundColor="#222";
+
+    window.addEventListener("load",setDimensions);
+    window.addEventListener("resize",setDimensions);
+
+    let x,y;
+
+    setInterval(draw,40);
+
+    function setDimensions() {
+        c.width=window.innerWidth;
+        c.height=window.innerHeight;
+        blobarray=[ ];
+        x=c.width/2;
+        y=c.height/2;
+    };
+
+    var blobarray = [ ];
+
+    var red=250;
+    var green=0;
+    var blue=0;
+
+    //this script returns colors that follow the red - yellow - green - cyan - blue - purple - red cycle
+    //in theory this would return 1536 different colors, but as I step through by 5, it only returns 307 different colors
+    function getNextColor() {
+
+        if (red==250 && green<250 && blue==0) {
+            green+=5;
+        };
+
+        if (green==250 && red>0) {
+            red-=5;
+        };
+
+        if (green==250 && red==0 && blue<250) {
+            blue+=5;
+        };
+
+        if (red==0 && blue==250) {
+            green-=5;
+        };
+
+        if (blue==250 && green==0) {
+            red+=5;
+        };
+
+        if (red==250 && green==0 && blue!=0) {
+            blue-=5;
+        };
+
+        return "rgb(" + red + "," + green + "," + blue + ")";
+
+    }
+
+    function draw() { //wordt om de 50 milliseconden uitgevoerd
+
+        var blob = {color:getNextColor(),radius:40,line:0};
+
+        blobarray.push(blob);
+
+        for (var i=0;i<blobarray.length;i++) {
+
+            if (blobarray.length>100) {
+                blobarray.splice(0,1);
+            }
+
+            else
+
+            {
+                var cblob=blobarray[i];
+
+                cc.beginPath();
+
+                if (cblob.radius==40) {cc.fillStyle = "black";	} else {cc.fillStyle = cblob.color;	};
+
+                cc.arc(x, y, cblob.radius, 0, Math.PI*2,true);
+                cc.fill();
+
+
+                cblob.radius=cblob.radius+15;
+
+                cc.clearRect(0,0,160,50);
+                cc.fillStyle="black";
+                cc.fillRect(0,0,160,50);
+                cc.fillStyle="white";
+                cc.font="15px Arial";
+                cc.fillText (cblob.color,30,30);
+
+            };
+        };
+    };
+</script>
+</body>
+</html>
