@@ -6,6 +6,7 @@ import L from "leaflet";
 
 
 export default mapTWENTY => {
+    console.log("map.js LOADED")
     const mapFIX = L.map(mapTWENTY).setView([50, -0.1], 4);
 
 // map
