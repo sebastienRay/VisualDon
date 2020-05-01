@@ -2,13 +2,13 @@ import { select } from 'd3'
 
 import {setBubble} from './bubble'
 import 'css/style.css';
-import './map';
-// DONNEES
 
+// DONNEES
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
 import {jsdelivr} from "d3/dist/package";
 import L from "leaflet";
+
 
 // la carte "leaflet"
 export const map = L.map('mapid').setView([47, 2], 2)
@@ -37,10 +37,10 @@ const getDataByYear = year =>
 // ELEMENTS
 
 // prendre la couche svg "leaflet" avec "d3"
-const svg = select(svgLayer._container)
+const svg = select(svgLayer._container);
 
 // le "slider"
-const input = document.getElementById('year-input')
+const input = document.getElementById('year-input');
 
 //taille des bulles en fonction de l'intensité du seisme
 function taille (size){
@@ -67,22 +67,22 @@ const createCircles = data =>
 
 // quand l'année change
 const onYearChange = year => {
-    svg.selectAll('circle').remove() // enlever les cercles existants
+    svg.selectAll('circle').remove() ;// enlever les cercles existants
     createCircles(getDataByYear(year)) // ajouter les cercles pour l'année
-}
+};
 
 // quand le "slider" change
-input.addEventListener('input', e => onYearChange(Number(e.target.value)))
+input.addEventListener('input', e => onYearChange(Number(e.target.value)));
 
 // repositionner les cercles sur la carte quand tu zoom la carte
 map.on('moveend', () => {
     svg.selectAll('circle')
         .attr('cx', d => getLeafletPosition(d).x)
         .attr('cy', d => getLeafletPosition(d).y)
-})
+});
 
 // montrer les cercles pour 2020 quand la page charge
-window.addEventListener('load', () => onYearChange(2020))
+window.addEventListener('load', () => onYearChange(2020));
 
 
 

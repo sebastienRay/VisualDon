@@ -5,22 +5,11 @@ import data from '../dist/earthquake.json'
 import {jsdelivr} from "d3/dist/package";
 import L from "leaflet";
 
+export default mapTWENTY => {
+    const div = select(`#${mapTWENTY}`);
+    export const mapFIX = L.map(id).setView([47, 2], 2);
 
-let waitForEl = function(selector, callback) {
-    if (jQuery(selector).length) {
-        callback();
-    } else {
-        setTimeout(function() {
-            waitForEl(selector, callback);
-        }, 100);
-    }
-};
-// la carte "leaflet"
-waitForEl("#twenty", function() {
-    const mapFIX = L.map('mapTWENTY').setView([47, 2], 2);
-
-
-
+}
 
 // la couche SVG de leaflet
 const svgLayer = L.svg().addTo(mapFIX);
@@ -38,11 +27,11 @@ L.tileLayer(
 const getLeafletPosition = d => mapFIX.latLngToLayerPoint([d.latitude, d.longitude]);
 
 
-console.log("TEST")
+console.log("TEST");
 // ELEMENTS
 
 // prendre la couche svg "leaflet" avec "d3"
-const svg = select(svgLayer._container)
+const svg = select(svgLayer._container);
 
 
 //taille des bulles en fonction de l'intensité du seisme
@@ -76,10 +65,4 @@ mapFIX.on('moveend', () => {
     svg.selectAll('circle')
         .attr('cx', d => getLeafletPosition(d).x)
         .attr('cy', d => getLeafletPosition(d).y)
-})
-
-
-
-
-
 });
