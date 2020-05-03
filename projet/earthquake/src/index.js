@@ -1,12 +1,8 @@
-import { select } from 'd3'
-
-import {setBubble} from './bubble'
+import {select} from 'd3'
 import 'css/style.css';
-
 // DONNEES
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
-import {jsdelivr} from "d3/dist/package";
 import L from "leaflet";
 import map20 from './map.js'
 
@@ -47,7 +43,7 @@ const input = document.getElementById('year-input');
 //taille des bulles en fonction de l'intensité du seisme
 function taille (size){
     data.filter(d => d === size);
-    return size.eq_primary;
+    return size.eq_primary * size.eq_primary / 2;
 }
 
 // une fonction pour créer les cercles
@@ -85,6 +81,11 @@ map.on('moveend', () => {
 
 // montrer les cercles pour 2020 quand la page charge
 window.addEventListener('load', () => onYearChange(2020));
+
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+map.dragging.disable();
 
 
 
