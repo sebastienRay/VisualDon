@@ -1,5 +1,6 @@
 import {select} from 'd3'
 import 'css/style.css';
+import './bubble';
 // importer l'indicateur d'année pour le slider
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
