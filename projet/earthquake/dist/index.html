@@ -13,12 +13,12 @@
     <style>
         body,h1, h3 {font-family: "Raleway", Arial, sans-serif}
         h1 {letter-spacing: 6px}
-        .w3-row-padding img {margin-bottom: 12px}
+        .w3-row-padding img {margin-bottom: 0px}
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity" style="padding:60px 16px">
+    <header class="w3-panel w3-center w3-opacity" style="padding:0px 16px">
         <h1 class="w3-xlarge">DATA VISUALIZATION</h1>
         <h1>EARTHQUAKE</h1>
 
@@ -26,12 +26,12 @@
             <div class="w3-bar w3-border">
                 <a href="#time" class="w3-bar-item w3-button">1808 to 2020</a>
                 <a href="#twenty" class="w3-bar-item w3-button">Top 10 of all time</a>
-                <a href="#" class="w3-bar-item w3-button">Contact</a>
+                <a href="#all" class="w3-bar-item w3-button">ALL</a>
             </div>
         </div>
     </header>
     <div id="content">
-        <div id="time">
+        <div id="time" name="time" class="page">
             <h3 align="center">1808 to 2020</h3>
             <div id="mapid"></div>
             <div class="range-wrap">
@@ -39,9 +39,13 @@
                 <output class="bubble"></output>
             </div>
         </div>
-        <div id="twenty">
+        <div id="twenty" name="twenty" class="page">
             <h3 align="center">Top 10 of all time</h3>
             <div id="mapTWENTY"></div>
+        </div>
+        <div id="all" name="all" class="page">
+            <h3 align="center">Top 10 of all time</h3>
+            <div id="mapALL"></div>
         </div>
     </div>
     <script src="bundle.js"></script>

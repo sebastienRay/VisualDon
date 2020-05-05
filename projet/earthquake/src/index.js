@@ -1,12 +1,21 @@
 import {select} from 'd3'
 import 'css/style.css';
-// DONNEES
+// importer l'indicateur d'année pour le slider
+import {} from './bubble';
+
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
-import L from "leaflet";
-import map20 from './map.js'
 
+//Leaflet
+import L from "leaflet";
+
+//MAP TWENTY
+import map20 from './mapTWENTY.js'
 map20('mapTWENTY');
+
+//MAP TWENTY
+//import mapALL from './mapALL.js'
+//mapALL('mapALL');
 
 // la carte "leaflet"
 export const map = L.map('mapid').setView([47, 2], 2)
@@ -86,6 +95,16 @@ map.touchZoom.disable();
 map.doubleClickZoom.disable();
 map.scrollWheelZoom.disable();
 map.dragging.disable();
+
+//routage
+$(window).on("popstate", evt  => {
+    let anchor = location.hash;
+    anchor = anchor.substr(1);
+    $('.page').hide();
+    let page = $(`[name="${anchor}"]`)
+    page.show();
+});
+$(window).trigger("popstate");
 
 
 
