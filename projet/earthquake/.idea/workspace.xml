@@ -5,6 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapALL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapALL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapTWENTY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapTWENTY.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +103,7 @@
       <workItem from="1587988546505" duration="693000" />
       <workItem from="1588057951220" duration="15616000" />
       <workItem from="1588488935744" duration="5600000" />
-      <workItem from="1588661996024" duration="16256000" />
+      <workItem from="1588661996024" duration="16816000" />
     </task>
     <servers />
   </component>

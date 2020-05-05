@@ -5,7 +5,7 @@ import L from "leaflet";
 export default mapTWENTY => {
     const mapFIX = L.map(mapTWENTY).setView([47, 2], 2);
 
-// map
+// MAP
 
 // le fond de carte
     L.tileLayer(
@@ -30,7 +30,6 @@ export default mapTWENTY => {
     const svg2 = select(svgLayer2._container);
 
 
-
 //taille des bulles en fonction de l'intensité du seisme
     function taille(size) {
         data.filter(d => d === size);
@@ -51,21 +50,27 @@ export default mapTWENTY => {
             .attr("fill-opacity", .4);
 
     /*Add the SVG Text NOT WORKING
-    const createText = data =>
-        svg2.selectAll("text")
-            .data(data, d => d.id)
-            .enter()
-            .append("text")
-            .attr('cx', d => getLeafletPosition(d).x)
-            .attr('cy', d => getLeafletPosition(d).y)
-            .text( function (d) { return d.year; })
-            .attr("font-family", "sans-serif")
-            .attr("dominant-baseline", "hanging")
-            .attr("font-size", "20px")
-            .attr("fill", "red")
-*/
+        const createText = data =>
+            svg2.selectAll("text")
+                .data(data, d => d.id)
+                .enter()
+                .append("text")
+                .attr('cx', d => getLeafletPosition(d).x)
+                .attr('cy', d => getLeafletPosition(d).y)
+                .text( function (d) { return d.year; })
+                .attr("font-family", "sans-serif")
+                .attr("dominant-baseline", "hanging")
+                .attr("font-size", "20px")
+                .attr("fill", "red")
 
-
+    */
+    /*mapFIX.on('moveend', () => {
+         svg2.selectAll('text')
+             .attr('cx', d => getLeafletPosition(d).x)
+             .attr('cy', d => getLeafletPosition(d).y)
+     });
+    */
+//createText(twentyBEST());
 
 // EVENEMENTS
 
@@ -75,12 +80,6 @@ export default mapTWENTY => {
             .attr('cx', d => getLeafletPosition(d).x)
             .attr('cy', d => getLeafletPosition(d).y)
     });
-    /*mapFIX.on('moveend', () => {
-        svg2.selectAll('text')
-            .attr('cx', d => getLeafletPosition(d).x)
-            .attr('cy', d => getLeafletPosition(d).y)
-    });
-*/
+//création des cercles
     createCircles(twentyBEST());
-    //createText(twentyBEST());
 }

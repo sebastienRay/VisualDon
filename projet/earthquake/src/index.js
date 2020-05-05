@@ -1,30 +1,26 @@
 import {select} from 'd3'
 import 'css/style.css';
 // importer l'indicateur d'année pour le slider
-import {} from './bubble';
-
 // importer les données directement du fichier
 import data from '../dist/earthquake.json'
-
 //Leaflet
 import L from "leaflet";
-
 //MAP TWENTY
 import map20 from './mapTWENTY.js'
-map20('mapTWENTY');
-
-//MAP TWENTY
+//MAP HEAT
 import mapALL from './mapALL.js'
+
+map20('mapTWENTY');
 mapALL('mapALL');
 
 // la carte "leaflet"
-export const map = L.map('mapid').setView([47, 2], 2)
+export const map = L.map('mapid').setView([47, 2], 2);
 
 
 // la couche SVG de leaflet
 const svgLayer = L.svg().addTo(map);
 
-// map
+// MAP
 
 // le fond de carte
 L.tileLayer(
@@ -50,7 +46,7 @@ const svg = select(svgLayer._container);
 const input = document.getElementById('year-input');
 
 //taille des bulles en fonction de l'intensité du seisme
-function taille (size){
+function taille(size) {
     data.filter(d => d === size);
     return size.eq_primary * size.eq_primary / 2;
 }
@@ -74,7 +70,7 @@ const createCircles = data =>
 
 // quand l'année change
 const onYearChange = year => {
-    svg.selectAll('circle').remove() ;// enlever les cercles existants
+    svg.selectAll('circle').remove();// enlever les cercles existants
     createCircles(getDataByYear(year)) // ajouter les cercles pour l'année
 };
 
@@ -91,20 +87,16 @@ map.on('moveend', () => {
 // montrer les cercles pour 2020 quand la page charge
 window.addEventListener('load', () => onYearChange(2020));
 
-map.touchZoom.disable();
-map.doubleClickZoom.disable();
-map.scrollWheelZoom.disable();
-map.dragging.disable();
 
-//routage
-$(window).on("popstate", evt  => {
+//routage, lors de la première arrivée le user est amené sur la page d'intro
+$(window).on("popstate", evt => {
     let anchor = location.hash;
     anchor = anchor.substr(1);
-    if (location.hash == ""){
+    if (location.hash == "") {
         anchor = "intro"
     }
     $('.page').hide();
-    let page = $(`[name="${anchor}"]`)
+    let page = $(`[name="${anchor}"]`);
     page.show();
 });
 $(window).trigger("popstate");
