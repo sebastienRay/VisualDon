@@ -14,8 +14,8 @@ import map20 from './mapTWENTY.js'
 map20('mapTWENTY');
 
 //MAP TWENTY
-//import mapALL from './mapALL.js'
-//mapALL('mapALL');
+import mapALL from './mapALL.js'
+mapALL('mapALL');
 
 // la carte "leaflet"
 export const map = L.map('mapid').setView([47, 2], 2)

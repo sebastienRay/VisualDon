@@ -24,13 +24,28 @@
 
         <div class="">
             <div class="w3-bar w3-border">
+                <a href="#intro" class="w3-bar-item w3-button">Introduction</a>
                 <a href="#time" class="w3-bar-item w3-button">1808 to 2020</a>
+                <a href="#all" class="w3-bar-item w3-button">Heatmap</a>
                 <a href="#twenty" class="w3-bar-item w3-button">Top 10 of all time</a>
-                <a href="#all" class="w3-bar-item w3-button">ALL</a>
             </div>
         </div>
     </header>
     <div id="content">
+        <div id="intro" name="intro" class="page">
+            <h3 align="center">A little explanation</h3>
+            <p>"An earthquake (also known as a quake, tremor or temblor) is the shaking of the surface of the Earth resulting from a sudden release of
+                    energy in the Earth's lithosphere that creates seismic waves. Earthquakes can range in size from those that are so weak that they cannot
+                    be felt to those violent enough to propel objects and people into the air, and wreak destruction across entire cities."
+            <a href="https://en.wikipedia.org/wiki/Earthquake">Wikipedia</a></br></br>
+                Earthquakes are appearing more and more and yet we still don't know much about them. Without any pretention I will try to expose the georgraphic
+                aspect of earthquakes. The tectonic plates are split in a certain way and significant earthquakes are most likely to happened between them.
+                The following image show you the different tectonic plates.</br>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Plates_tect2_en.svg/2560px-Plates_tect2_en.svg.png" alt="tectonic plates">
+                </br>
+                The dataset used in this work is :<a href="https://console.cloud.google.com/marketplace/details/noaa-public/noaa-earthquakes">Significant Earthquakes Database</a>
+            </p>
+        </div>
         <div id="time" name="time" class="page">
             <h3 align="center">1808 to 2020</h3>
             <div id="mapid"></div>
@@ -44,7 +59,7 @@
             <div id="mapTWENTY"></div>
         </div>
         <div id="all" name="all" class="page">
-            <h3 align="center">Top 10 of all time</h3>
+            <h3 align="center">Heatmap of every earthquakes ever registered</h3>
             <div id="mapALL"></div>
         </div>
     </div>

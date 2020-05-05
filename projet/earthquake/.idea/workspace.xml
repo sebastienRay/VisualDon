@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8ce41d0-7a63-4805-aa49-61a01e7bf2cb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/heatmap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mapALL.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/img/2560px-Plates_tect2_en.svg.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/bundle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bubble.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/bubble.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapTWENTY.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapALL.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapALL.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mapTWENTY.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/mapTWENTY.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,11 +48,11 @@
       <recent name="C:\Users\sebas\WebstormProjects\dataviz\dist" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sebas\Documents\GitHub\VisualDon\projet\earthquake\src\img" />
       <recent name="C:\Users\sebas\Documents\GitHub\VisualDon\projet\earthquake\src" />
       <recent name="C:\Users\sebas\Documents\GitHub\VisualDon\projet\earthquake\src\css" />
       <recent name="C:\Users\sebas\Documents\GitHub\VisualDon\projet\earthquake\dist" />
       <recent name="C:\Users\sebas\WebstormProjects\PWA\src" />
-      <recent name="C:\Users\sebas\WebstormProjects\PWA\src\css" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -108,7 +107,7 @@
       <workItem from="1587988546505" duration="693000" />
       <workItem from="1588057951220" duration="15616000" />
       <workItem from="1588488935744" duration="5600000" />
-      <workItem from="1588661996024" duration="4394000" />
+      <workItem from="1588661996024" duration="15258000" />
     </task>
     <servers />
   </component>

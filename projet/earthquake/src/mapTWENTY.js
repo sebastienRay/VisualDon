@@ -27,8 +27,9 @@ export default mapTWENTY => {
 
 // une fonction pour aller chercher les données par année
     const twentyBEST = twenty =>
-            data.sort((a, b) => a.eq_primary > b.eq_primary ? -1 : 1).filter((d, i) => i < 11);
+        data.sort((a, b) => a.eq_primary > b.eq_primary ? -1 : 1).filter((d, i) => i < 11);
 
+console.log(twenty)
 
 
 // ELEMENTS
@@ -55,16 +56,25 @@ export default mapTWENTY => {
             .attr('cy', d => getLeafletPosition(d).y)
             .attr("r", taille)
             .style("fill", "red")
-            .attr("fill-opacity", .4)
-            .on('mouseover', tool_tip.show)
-            .on('mouseout', tool_tip.hide);
+            .attr("fill-opacity", .4);
 
-//TOOLTIPS
-    let tool_tip = tip()
-        .attr("class", "d3-tip")
-        .offset([-8, 0])
-        .html(function(d) { return "TEST"; });
-    svg2.call(tool_tip);
+    /*Add the SVG Text NOT WORKING
+    const createText = data =>
+        svg2.selectAll("text")
+            .data(data, d => d.id)
+            .enter()
+            .append("text")
+            .attr('cx', d => getLeafletPosition(d).x)
+            .attr('cy', d => getLeafletPosition(d).y)
+            .text( function (d) { return d.year; })
+            .attr("font-family", "sans-serif")
+            .attr("dominant-baseline", "hanging")
+            .attr("font-size", "20px")
+            .attr("fill", "red")
+*/
+
+
+
 // EVENEMENTS
 
 // repositionner les cercles sur la carte quand tu zoom la carte
@@ -73,6 +83,12 @@ export default mapTWENTY => {
             .attr('cx', d => getLeafletPosition(d).x)
             .attr('cy', d => getLeafletPosition(d).y)
     });
-
-    createCircles(twentyBEST(twenty));
+    /*mapFIX.on('moveend', () => {
+        svg2.selectAll('text')
+            .attr('cx', d => getLeafletPosition(d).x)
+            .attr('cy', d => getLeafletPosition(d).y)
+    });
+*/
+    createCircles(twentyBEST());
+    //createText(twentyBEST());
 }
