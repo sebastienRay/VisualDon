@@ -1,5 +1,4 @@
 import data from '../dist/earthquake.json'
-import {json} from 'd3'
 import L from 'leaflet'
 import 'leaflet-defaulticon-compatibility'
 import 'leaflet.heat'

@@ -1,11 +1,6 @@
 import {select} from 'd3'
-
 import data from '../dist/earthquake.json'
 import L from "leaflet";
-import d3Tip from "d3-tip";
-import {map} from "./index";
-let tip = d3Tip;
-
 
 export default mapTWENTY => {
     const mapFIX = L.map(mapTWENTY).setView([47, 2], 2);
@@ -28,9 +23,6 @@ export default mapTWENTY => {
 // une fonction pour aller chercher les données par année
     const twentyBEST = twenty =>
         data.sort((a, b) => a.eq_primary > b.eq_primary ? -1 : 1).filter((d, i) => i < 11);
-
-console.log(twenty)
-
 
 // ELEMENTS
 

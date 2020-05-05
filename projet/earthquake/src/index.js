@@ -100,6 +100,9 @@ map.dragging.disable();
 $(window).on("popstate", evt  => {
     let anchor = location.hash;
     anchor = anchor.substr(1);
+    if (location.hash == ""){
+        anchor = "intro"
+    }
     $('.page').hide();
     let page = $(`[name="${anchor}"]`)
     page.show();
