@@ -1,7 +1,3 @@
-**TODO**
-
-Une première carte qui affiche les tremblements de terre depuis 1808 à aujourd'hui est fonctionnelle. Je veux ajouter une deuxième carte qui afficherait les 20 plus grands tremblements de terre mais j'arrive pas à gérer l'affichage de deux carte sur une même page.
-
 
 
 **D'où viennent les données (où, qui, pourquoi...)**
@@ -45,3 +41,4 @@ https://github.com/sebastienRay/VisualDon/tree/master/projet/earthquake
 http://raydatavis.surge.sh/
 
 **Quel scripte je dois utiliser pour recréer le site à partir de votre code**
+npm run watch
